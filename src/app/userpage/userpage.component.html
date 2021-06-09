@@ -1,0 +1,16 @@
+<div class="mx-5">
+    <div *ngFor="let quiz of collection"> 
+    <div class="card">           
+      <div class="card-body">
+        <h4 class="card-title">{{quiz.quizName}}</h4><hr>
+        <p class="card-text">{{quiz.noOfQuestions}} Questions</p>
+        <a  class="btn btn-sm btn-light float-end" routerLink="{{quiz.id}}">Attempt now</a>
+        
+    </div>
+    </div>
+    <br>
+</div>
+
+    
+
+  

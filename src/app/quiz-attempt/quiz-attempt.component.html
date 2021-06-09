@@ -1,0 +1,52 @@
+<div class="container" id="solution">
+  <h4 *ngIf="show" class="text-center text-danger">Review</h4>
+  <div class="card mb-4 p-4" *ngFor="let q of questions">
+    
+    <div class="ms-5 " >
+      <br>
+      <h3>{{q.question}}</h3>
+      <br>
+      <form (ngSubmit)="check()" [formGroup]="answer">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="1" formControlName="answer" name="answer" id="1">
+          <label class="form-check-label" for="1">
+            {{q.op1}}
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="2" formControlName="answer" name="answer" id="2">
+          <label class="form-check-label" for="2">
+            {{q.op2}}
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="3" formControlName="answer" name="answer" id="3">
+          <label class="form-check-label" for="3">
+            {{q.op3}}
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="4" formControlName="answer" name="answer" id="4">
+          <label class="form-check-label" for="4">
+            {{q.op4}}
+          </label>
+        </div>
+        <br>
+        <h4 *ngIf="show" class="text-primary">Correct answer is {{q.correctAnswer}}</h4>
+        <input type="hidden" [ngModel]='q.correctAnswer' formControlName="correct"  name="correct">
+        <button type="submit" class="float-end btn btn-primary"  *ngIf="!show">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <button class="btn btn-danger float-end" (click)="submit()" *ngIf="!show"> Submit Quiz</button>
+  <button class="btn btn-danger float-start" routerLink="/" *ngIf="show"> Go to Quizs</button>
+
+</div>
+<br>
+
+<div *ngIf="alert" class="container">
+  <h1 class="text-center text-danger"> Result </h1>
+  <h3>You got {{this.marks}} marks out of {{this.len}}</h3><br>
+  <button class="btn btn-danger" (click)="review()"> Review</button>
+</div>

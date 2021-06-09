@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="card mb-4 p-4" *ngFor="let q of questions">
+        
+            <div class="ms-5">
+                <br>
+                <h3>{{q.question}}</h3>
+                <br>
+
+            <p>1. {{q.op1}}</p>
+            <p>2. {{q.op2}}</p>
+            <p>3. {{q.op3}}</p>
+            <p>4. {{q.op4}}</p>
+            <br>
+        <h5>Correct answer -- {{q.correctAnswer}}</h5><br>
+        </div>
+
+    </div>
+</div>

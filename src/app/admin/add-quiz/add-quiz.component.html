@@ -1,0 +1,65 @@
+<form [formGroup]="addQz" (ngSubmit)="addQuiz()" id="addQuiz" class="container">
+  <div class="mb-3">
+    <label class="form-label">
+      <h4>Quiz name</h4>
+    </label>
+    <input type="text" class="form-control" formControlName="quizName" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">
+      <h4>Number of Questions</h4>
+    </label>
+    <input type="number" class="form-control" formControlName="noOfQuestions" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary" id="submit">Post Quiz and Add Questions &#8594;</button>
+  <br><br>
+ 
+</form>
+
+<div *ngIf="alert">
+  <div class="card text-center container text-danger mb-5 d-3 p-3">
+    <b>{{quizName}}
+      <br>( {{noQ}} questions )</b>
+  </div>
+
+  <div *ngFor="let item of arrayOne(noQ); let i = index;">
+    <form [formGroup]="addQu" (ngSubmit)="addQuestion()" class="container card p-5 mb-3">
+
+      <div class="form-group">
+        <label><h3>Question {{i+1}} </h3> </label>
+        <input type="text" class="form-control" formControlName="question" placeholder="Enter Question">
+      </div><br>
+
+      <div class=" mx-2 form-group">        
+        <input type="text" class="form-control" formControlName="op1" placeholder="Enter Option 1 ">
+      </div><br>
+      <div class=" mx-2 form-group">
+        <input type="text" class="form-control" formControlName="op2" placeholder="Enter Option 2 ">
+      </div><br>
+      <div class=" mx-2 form-group">
+        <input type="text" class="form-control" formControlName="op3" placeholder="Enter Option 3 ">
+      </div><br>
+      <div class=" mx-2 form-group">
+        <input type="text" class="form-control" formControlName="op4" placeholder="Enter Option 4 ">
+      </div><br>
+
+      <div class="form-group">
+        <label>Correct Option Number </label>
+        <input type="number" class="form-control" formControlName="correct" placeholder="Enter Correct Option Number (1-4)" min="1" max="4">
+      </div><br>
+
+
+      <button type="submit" class="btn btn-primary">Add </button>
+    </form>
+  </div>
+
+
+  <div class="container text-center">
+    <a type="button" class="btn btn-danger"  routerLink="../dashboard"> Click here to post all questions</a><br><br>
+  </div>
+  <br>
+  <!-- <div *ngIf="alert" class="alert alert-success" role="alert">
+    <strong>Success!</strong> Quiz has been created ,add all {{this.noQ}} questions.
+  </div> -->
+</div>

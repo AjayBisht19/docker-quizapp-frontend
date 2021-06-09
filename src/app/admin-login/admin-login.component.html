@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="col-md-4 offset-md-4  ">
+	<br><br><br>
+	
+	<div class="container text-center">
+		<i class="fas fa-user-shield fa-4x"></i>
+	</div>
+	<br>
+			<form [formGroup]="admin" (ngSubmit)="login()">
+		  <div class="mb-3">
+		    <label for="exampleInputEmail1" class="form-label">Email address</label>
+		    <input type="email" name="email" class="form-control" formControlName="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+		    
+		  </div>
+		  <div class="mb-3">
+		    <label for="exampleInputPassword1" class="form-label">Password</label>
+		    <input type="password" name="password" class="form-control" formControlName="password" id="exampleInputPassword1">
+		  </div>
+		  <br>
+		  <div class="container text-center">
+		  <button type="submit" class="btn btn-primary" >Submit</button>
+		  </div>
+		</form>
+	</div>
+</div>
+
