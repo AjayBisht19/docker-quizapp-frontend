@@ -1,8 +1,21 @@
-FROM node:10.16.1-alpine as builder
-WORKDIR /QuizAppFront
-COPY . .
+# Stage 1
+
+FROM node:12-alpine as build-step
+
+RUN mkdir -p /app
+
+WORKDIR /app
+
+COPY package.json /app
+
 RUN yarn install
+
+COPY . /app
+
 RUN yarn run build --prod
 
-FROM nginx:1.15.8-alpine
-COPY --from=builder /QuizAppFront/dist/QuizAppFront/ /usr/share/nginx/html
+# Stage 2
+
+FROM nginx:1.17.1-alpine
+
+COPY --from=build-step /app/dist /usr/share/nginx/html
