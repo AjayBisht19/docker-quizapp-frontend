@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: 'root'
 })
 export class QuizsService {
-  url="http://3.84.50.226:7010/";
+  url="http://3.86.145.248";
   
   constructor(private http:HttpClient) { }
   getquizs(){
