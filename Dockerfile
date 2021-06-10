@@ -1,9 +1,8 @@
-FROM node:latest as builder
-
-RUN mkdir -p /app
-WORKDIR /app
+FROM node:10.16.1-alpine as builder
+WORKDIR /QuizAppFront
 COPY . .
-RUN npm install
-RUN npm run build --prod
+RUN yarn install
+RUN yarn run build --prod
 
-CMD ["npm","start"]
+FROM nginx:1.15.8-alpine
+COPY --from=builder /QuizAppFront/dist/QuizAppFront/ /usr/share/nginx/html
