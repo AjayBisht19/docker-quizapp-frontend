@@ -8,11 +8,11 @@ WORKDIR /app
 
 COPY package.json /app
 
-RUN yarn install
+RUN npm install
 
 COPY . /app
 
-RUN yarn run build --prod
+RUN npm run build --prod
 
 # Stage 2
 
