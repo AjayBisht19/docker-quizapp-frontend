@@ -1,3 +1,3 @@
 FROM nginx:1.17.1-alpine
 
-COPY /dist/quizappfrontend /usr/share/nginx/html
+COPY /dist/QuizApp /usr/share/nginx/html
